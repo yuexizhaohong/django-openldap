@@ -127,29 +127,15 @@ from django_auth_ldap.config import LDAPSearch, GroupOfNamesType
 
 
 # Baseline configuration.
-AUTH_LDAP_SERVER_URI = 'ldap://39.97.28.241:30389'
+AUTH_LDAP_SERVER_URI = 'ldap://x.x.x.x:389'
 
 AUTH_LDAP_BIND_DN = 'cn=root,dc=laiye,dc=com'
-AUTH_LDAP_BIND_PASSWORD = 'Laiye@2019'
+AUTH_LDAP_BIND_PASSWORD = '********'
 AUTH_LDAP_USER_SEARCH = LDAPSearch(
     'ou=People,dc=laiye,dc=com',
     ldap.SCOPE_SUBTREE,
     '(uid=%(user)s)',
 )
-# Or:
-# AUTH_LDAP_USER_DN_TEMPLATE = 'uid=%(user)s,dc=ops-coffee,dc=cn'
-
-# Set up the basic group parameters.
-#AUTH_LDAP_GROUP_SEARCH = LDAPSearch(
-#    'ou=groups,dc=laiye,dc=com',
-#    ldap.SCOPE_SUBTREE,
-#    '(objectClass=groupOfNames)',
-#)
-#AUTH_LDAP_GROUP_TYPE = GroupOfNamesType(name_attr='cn')
-
-# Simple group restrictions
-#AUTH_LDAP_REQUIRE_GROUP = 'cn=svn,ou=groups,dc=ops-coffee,dc=cn'
-#AUTH_LDAP_DENY_GROUP = 'cn=git,ou=groups,dc=ops-coffee,dc=cn'
 
 # Populate the Django user from the LDAP directory.
 AUTH_LDAP_USER_ATTR_MAP = {
@@ -157,10 +143,6 @@ AUTH_LDAP_USER_ATTR_MAP = {
     'last_name': 'uid',
     'email': 'mail',
 }
-
-#AUTH_LDAP_USER_FLAGS_BY_GROUP = {
-#    'is_superuser': 'cn=admin,ou=groups,dc=ops-coffee,dc=cn',
-#}
 
 # This is the default, but I like to be explicit.
 #AUTH_LDAP_ALWAYS_UPDATE_USER = True
