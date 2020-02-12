@@ -129,10 +129,10 @@ from django_auth_ldap.config import LDAPSearch, GroupOfNamesType
 # Baseline configuration.
 AUTH_LDAP_SERVER_URI = 'ldap://x.x.x.x:389'
 
-AUTH_LDAP_BIND_DN = 'cn=root,dc=laiye,dc=com'
+AUTH_LDAP_BIND_DN = 'cn=root,dc=domain,dc=com'
 AUTH_LDAP_BIND_PASSWORD = '********'
 AUTH_LDAP_USER_SEARCH = LDAPSearch(
-    'ou=People,dc=laiye,dc=com',
+    'ou=People,dc=domain,dc=com',
     ldap.SCOPE_SUBTREE,
     '(uid=%(user)s)',
 )
